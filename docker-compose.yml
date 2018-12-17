@@ -1,0 +1,67 @@
+version: '3'
+
+networks:
+  default:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.0.1/24
+
+volumes:
+  pgdata:
+    driver: local
+
+services:
+
+  nginx:
+    image: nginx:1.15.6-alpine
+    container_name: nginx
+    restart: 'no'
+    ports:
+      - '80:80'
+    volumes:
+      - ${SYMFONY_APP_PATH}:/var/www
+      - .docker/nginx/conf:/etc/nginx/conf.d
+      - ${SYMFONY_APP_PATH}/var/nginx:/var/log/nginx
+    depends_on:
+      - phpfpm
+    networks:
+      - default
+
+  phpfpm:    
+    container_name: phpfpm
+    build: .docker/php
+    restart: 'no'
+    volumes:
+      - ${SYMFONY_APP_PATH}:/var/www:cached
+    depends_on:
+      - postgres
+    networks:
+      - default
+
+  postgres:    
+    container_name: postgres
+    build: .docker/postgres
+    restart: 'no'
+    ports:
+      - '5433:5432'
+    volumes:
+      - pgdata:${PSQL_PGDATA}
+      - ${SYMFONY_APP_PATH}/var/postgresql:/var/log/postgresql
+    environment:
+      POSTGRES_DB: ${PSQL_DATABASE}
+      POSTGRES_USER: ${PSQL_USER}
+      POSTGRES_PASSWORD: ${PSQL_PASSWORD}
+      PGDATA: ${PSQL_PGDATA}
+    networks:
+      - default
+
+  composer:    
+    container_name: composer
+    build: .docker/composer
+    restart: 'no'
+    volumes:
+      - ${SYMFONY_APP_PATH}:/app:cached
+    networks:
+      - default
