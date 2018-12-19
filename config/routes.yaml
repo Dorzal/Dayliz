@@ -5,3 +5,7 @@
 login:
   path: /security/login
   defaults: { _controller: 'App\Controller\SecurityController::login' }
+
+interest:
+  path: /interest
+  defaults: { _controller: 'App\Controller\CategoryController::interest' }
