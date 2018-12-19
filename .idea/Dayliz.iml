@@ -33,6 +33,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/sonata-project/core-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/sonata-project/datagrid-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/sonata-project/doctrine-extensions" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/sonata-project/exporter" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/asset" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/doctrine-bridge" />

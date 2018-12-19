@@ -6,6 +6,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "sonata-project/admin-bundle": "^3.43",
+        "sonata-project/doctrine-orm-admin-bundle": "^3.6",
         "symfony/console": "4.2.*",
         "symfony/dotenv": "4.2.*",
         "symfony/flex": "^1.1",
