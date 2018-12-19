@@ -7,6 +7,7 @@
  */
 namespace App\Admin;
 
+use App\Entity\Mark;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
@@ -31,6 +32,13 @@ class MarkAdmin extends AbstractAdmin
     {
         $listMapper->addIdentifier('name');
 
+    }
+
+    public function toString($object)
+    {
+        return $object instanceof Mark
+            ? $object->getName()
+            : 'Mark'; // shown in the breadcrumb on the create view
     }
 
 }

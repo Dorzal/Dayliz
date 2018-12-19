@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -17,12 +18,12 @@ class User implements UserInterface
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id;
+    protected $id;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      */
-    private $email;
+    protected $email;
 
     /**
      * @ORM\Column(type="json")
@@ -59,6 +60,33 @@ class User implements UserInterface
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $update_at;
+
+    /**
+     * Many Users have Many Groups.
+     * @ORM\ManyToMany(targetEntity="Category", inversedBy="users")
+     * @ORM\JoinTable(name="interest")
+     */
+    private $categorys;
+
+    public function __construct()
+    {
+        $this->categorys = new ArrayCollection();
+    }
+
+    public function getCategorys(){
+        return $this->categorys;
+    }
+
+    public function addCategorys(Category $category) {
+        $this->categorys->add($category);
+        $category->addUser($this);
+    }
+
+    public function removeCategorys(Category $category) {
+        $this->categorys->removeElement($category);
+        $category->removeUsers($this);
+    }
+
 
 
     public function getId(): ?int
@@ -198,4 +226,5 @@ class User implements UserInterface
 
         return $this;
     }
+
 }

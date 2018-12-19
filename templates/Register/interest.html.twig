@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <h1>Edit group</h1>
+        </div>
+
+        {{ form_start(form) }}
+
+        {{ form_row(form.categorys) }}
+
+        <button type="submit" class="btn btn-success">Edit</button>
+
+        {{ form_rest(form) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
