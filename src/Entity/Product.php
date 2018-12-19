@@ -46,8 +46,25 @@ class Product
      */
     private $category;
 
+    public function getCategoryId(): ?Category {
+
+        return $this->category;
+    }
+
+    public function setCategoryId(?int $category_id): self {
+        $this->category_id = $category_id;
+
+        return $this;
+
+    }
+
     public function getCategory(){
         return $this->category;
+    }
+
+    public function setCategory(?Category $category): self {
+        $this->category = $category;
+        return $this;
     }
 
     public function getId(): ?int

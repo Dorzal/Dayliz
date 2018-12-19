@@ -37,8 +37,33 @@ class Category
         $this->products = new ArrayCollection();
     }
 
+    /**
+     * @return COllection | Product[]
+     */
     public function getProducts(){
         return $this->products;
+    }
+
+    public function addProducts(Product $product): self{
+        if(!$this->products->contains($product)){
+            $this->products[] = $product;
+            $product->setCategory($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProducts(Product $product): self {
+
+        if($this->products->contains($product)) {
+            $this->products->removeElement($product);
+            if ($product->getCategory() === $this) {
+                $product->setCategory(null);
+            }
+
+            return $this;
+        }
+
     }
 
     public function getId(): ?int
