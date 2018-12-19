@@ -39,3 +39,10 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, label: Product }
         public: true
+
+    admin.mark:
+        class: App\Admin\MarkAdmin
+        arguments: [~, App\Entity\Mark, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Mark }
+        public: true

@@ -10,6 +10,7 @@ namespace App\Admin;
 
 
 use App\Entity\Category;
+use App\Entity\Mark;
 use App\Entity\Product;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -30,6 +31,11 @@ class ProductAdmin extends AbstractAdmin
             'choice_label' => 'name',
         ])
         ;
+        $formMapper->add('mark', EntityType::class, [
+            'class' => Mark::class,
+            'choice_label' => 'name',
+        ])
+        ;
         $formMapper->add('name', TextType::class);
         $formMapper->add('image', TextType::class);
         $formMapper->add('describe', TextareaType::class);
@@ -40,7 +46,8 @@ class ProductAdmin extends AbstractAdmin
 
     protected function configureListFields(ListMapper $listMapper)
     {
-        $listMapper->addIdentifier('id');
+        $listMapper->addIdentifier('category.name');
+        $listMapper->addIdentifier('mark.name');
         $listMapper->addIdentifier('name');
         $listMapper->addIdentifier('image');
         $listMapper->addIdentifier('describe');

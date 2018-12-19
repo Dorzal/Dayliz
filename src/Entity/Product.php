@@ -46,6 +46,32 @@ class Product
      */
     private $category;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Mark", inversedBy="products")
+     */
+    private $mark;
+
+    public function getMarkId(): ?Mark {
+
+        return $this->mark;
+    }
+
+    public function setMarkId(?int $mark_id): self {
+        $this->mark_id = $mark_id;
+
+        return $this;
+
+    }
+
+    public function getMark(){
+        return $this->mark;
+    }
+
+    public function setMark(?Mark $mark): self {
+        $this->mark = $mark;
+        return $this;
+    }
+
     public function getCategoryId(): ?Category {
 
         return $this->category;
