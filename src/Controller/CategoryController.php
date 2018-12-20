@@ -15,8 +15,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class CategoryController extends AbstractController
 {
     public function interest(EntityManagerInterface $em){
+
+        $this->denyAccessUnlessGranted('ROLE_USER', null, 'User tried to access a page without having ROLE_USER');
         $category = $em->getRepository(Category::class)->findAll();
-        return $this->render('Register/interest.html.twig', [
+        return $this->render('registration/interest.html.twig', [
             'category' => $category,
         ]);
     }

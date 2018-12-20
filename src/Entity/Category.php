@@ -34,7 +34,7 @@ class Category
 
     /**
      * Many Interest have Many Users.
-     * @ORM\ManyToMany(targetEntity="User", mappedBy="interests")
+     * @ORM\ManyToMany(targetEntity="User", mappedBy="categorys")
      */
     private $users;
 
@@ -43,6 +43,7 @@ class Category
         $this->products = new ArrayCollection();
         $this->users = new ArrayCollection();
     }
+
 
     public function getUsers(){
         return $this->users;

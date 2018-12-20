@@ -1,6 +1,6 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+index:
+    path: /
+    controller: App\Controller\DefaultController::index
 
 login:
   path: /security/login
@@ -9,3 +9,11 @@ login:
 interest:
   path: /interest
   defaults: { _controller: 'App\Controller\CategoryController::interest' }
+
+register:
+  path: /register
+  defaults: { _controller: 'App\Controller\RegistrationController::register' }
+
+know_interest:
+  path: /know_interest
+  defaults: { _controller: 'App\Controller\InterestController::knowInterest'}

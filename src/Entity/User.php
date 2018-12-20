@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -46,10 +47,6 @@ class User implements UserInterface
      */
     private $lastname;
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $username;
 
     /**
      * @ORM\Column(type="datetime")
@@ -60,6 +57,12 @@ class User implements UserInterface
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $update_at;
+
+    /**
+     * @Assert\NotBlank
+     * @Assert\Length(max=4096)
+     */
+    private $plainPassword;
 
     /**
      * Many Users have Many Groups.
@@ -85,6 +88,16 @@ class User implements UserInterface
     public function removeCategorys(Category $category) {
         $this->categorys->removeElement($category);
         $category->removeUsers($this);
+    }
+
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+
+    public function setPlainPassword($password)
+    {
+        $this->plainPassword = $password;
     }
 
 
@@ -116,9 +129,7 @@ class User implements UserInterface
         return (string) $this->email;
     }
 
-    public function setUsername(){
 
-    }
 
     /**
      * @see UserInterface
@@ -160,6 +171,7 @@ class User implements UserInterface
     public function getSalt()
     {
         // not needed when using the "bcrypt" algorithm in security.yaml
+        return null;
     }
 
     /**

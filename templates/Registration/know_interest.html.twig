@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+
+    {{ form_start(form) }}
+
+    <h3>Tags</h3>
+    <ul class="tags">
+        {% for category in form.categorys %}
+            <li>{{ form_row(category.name) }}</li>
+        {% endfor %}
+    </ul>
+    {{ form_end(form) }}
+
+{% endblock %}
