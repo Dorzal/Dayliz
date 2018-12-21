@@ -22,7 +22,7 @@ class InterestType extends AbstractType
 
         $builder->add('categorys', CollectionType::class, array(
             'entry_type' => CategoryType::class,
-            
+
         ));
     }
 
