@@ -19,19 +19,19 @@ class CategoryAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper->add('name', TextType::class);
-        $formMapper->add('logo', TextType::class);
+//        $formMapper->add('logo', TextType::class);
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper->add('name');
-        $datagridMapper->add('logo');
+//        $datagridMapper->add('logo');
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper->addIdentifier('name');
-        $listMapper->addIdentifier('logo');
+//        $listMapper->addIdentifier('logo');
     }
 
     public function toString($object)

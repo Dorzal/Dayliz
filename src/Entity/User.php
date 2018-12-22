@@ -66,7 +66,7 @@ class User implements UserInterface
 
     /**
      * Many Users have Many Groups.
-     * @ORM\ManyToMany(targetEntity="Category", inversedBy="users")
+     * @ORM\ManyToMany(targetEntity="Category", inversedBy="users", cascade={"persist"})
      * @ORM\JoinTable(name="interest")
      */
     private $categorys;
@@ -82,7 +82,7 @@ class User implements UserInterface
 
     public function addCategorys(Category $category) {
         $this->categorys->add($category);
-        $category->addUser($this);
+        $category->addUsers($this);
     }
 
     public function removeCategorys(Category $category) {

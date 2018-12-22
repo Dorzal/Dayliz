@@ -3,15 +3,14 @@
 {% block body %}
     <h1>Choisissez vos centre d'intérêts</h1>
 
-    {% for category in category %}
-        <div>
-            <div>
-                <p>{{ category.name }}</p>
-                <a  href="#">étoile</a>
-            </div>
-        </div>
+    {{ form_start(form) }}
+    {{ form_row(form.name) }}
+    <button type="submit">Register!</button>
+    {{ form_end(form) }}
 
-        <hr>
-    {% endfor %}
+
 
 {% endblock %}
+
+
+
