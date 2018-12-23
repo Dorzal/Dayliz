@@ -21,9 +21,6 @@ class ProductController extends AbstractController
 
     public function show(EntityManagerInterface $em, int $id) : Response{
 
-
-
-
         $product = $em->getRepository(Product::class)->active($id);
 
         return $this->render('product/show.html.twig', [
