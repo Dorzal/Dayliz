@@ -13,3 +13,12 @@ interest:
 register:
   path: /register
   defaults: { _controller: 'App\Controller\RegistrationController::register' }
+
+
+category:
+  path: /category/index
+  defaults: { _controller: 'App\Controller\CategoryController::index' }
+
+product:
+  path: /product/{id}
+  defaults: { _controller: 'App\Controller\ProductController::show' }

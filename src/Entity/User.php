@@ -65,30 +65,11 @@ class User implements UserInterface
     private $plainPassword;
 
     /**
-     * Many Users have Many Groups.
-     * @ORM\ManyToMany(targetEntity="Category", inversedBy="users", cascade={"persist"})
-     * @ORM\JoinTable(name="interest")
+     * One user has One interet.
+     * @ORM\OneToOne(targetEntity="Interest")
+     * @ORM\JoinColumn(name="interest_id", referencedColumnName="id")
      */
-    private $categorys;
-
-    public function __construct()
-    {
-        $this->categorys = new ArrayCollection();
-    }
-
-    public function getCategorys(){
-        return $this->categorys;
-    }
-
-    public function addCategorys(Category $category) {
-        $this->categorys->add($category);
-        $category->addUsers($this);
-    }
-
-    public function removeCategorys(Category $category) {
-        $this->categorys->removeElement($category);
-        $category->removeUsers($this);
-    }
+    private $interest;
 
     public function getPlainPassword()
     {

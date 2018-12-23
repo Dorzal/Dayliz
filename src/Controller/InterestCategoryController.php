@@ -10,6 +10,7 @@ namespace App\Controller;
 
 
 use App\Entity\Category;
+use App\Entity\Interest;
 use App\Form\InterestType;
 
 use Doctrine\ORM\EntityManagerInterface;
@@ -34,9 +35,11 @@ class InterestCategoryController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $user = $this->security->getUser();
-            $user->addCategorys($form->getData());
-            $em->persist($user);
+            $interest = new Interest();
+            var_dump($form);
+            die();
+            $interest->setCategoryId($data);
+            $em->persist($interest);
             $em->flush();
         }
 

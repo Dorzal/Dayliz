@@ -15,12 +15,12 @@ class Category
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    protected $id;
+    private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    protected $name;
+    private $name;
 
     /**
      * @ORM\Column(type="string", length=500, nullable=true)
@@ -32,30 +32,17 @@ class Category
      */
     private $products;
 
+
     /**
-     * Many Interest have Many Users.
-     * @ORM\ManyToMany(targetEntity="User", mappedBy="categorys")
+     * @ORM\ManyToOne(targetEntity="Interest", inversedBy="category")
      */
-    private $users;
+    private $interest;
 
     public function __construct()
     {
         $this->products = new ArrayCollection();
-        $this->users = new ArrayCollection();
     }
 
-
-    public function getUsers(){
-        return $this->users;
-    }
-
-    public function addUsers(User $user) {
-        $this->users[] = $user;
-    }
-
-    public function removeUsers(User $user) {
-        $this->users->removeElement($user);
-    }
 
     /**
      * @return Collection | Product[]

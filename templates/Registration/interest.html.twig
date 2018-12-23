@@ -4,7 +4,7 @@
     <h1>Choisissez vos centre d'intérêts</h1>
 
     {{ form_start(form) }}
-    {{ form_row(form.name) }}
+    {{ form_row(form.name, {'value': 'id'}) }}
     <button type="submit">Register!</button>
     {{ form_end(form) }}
 

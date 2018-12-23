@@ -11,16 +11,22 @@ namespace App\Controller;
 use App\Entity\Category;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 
 class CategoryController extends AbstractController
 {
-    public function interest(EntityManagerInterface $em){
+    public function index(EntityManagerInterface $em)
+    {
 
         $this->denyAccessUnlessGranted('ROLE_USER', null, 'User tried to access a page without having ROLE_USER');
         $category = $em->getRepository(Category::class)->findAll();
-        return $this->render('registration/interest.html.twig', [
+        return $this->render('category/index.html.twig', [
             'category' => $category,
         ]);
     }
 
+
+
+
 }
+

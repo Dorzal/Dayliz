@@ -13,6 +13,7 @@ use App\Entity\Category;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 
 class InterestType extends AbstractType
@@ -27,6 +28,8 @@ class InterestType extends AbstractType
                 'multiple' => true,
                 'expanded' => true,
             ));
+
+
     }
 
 }
