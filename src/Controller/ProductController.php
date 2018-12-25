@@ -11,7 +11,6 @@ namespace App\Controller;
 
 use App\Entity\Product;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\Query\AST\Functions\CurrentDateFunction;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 

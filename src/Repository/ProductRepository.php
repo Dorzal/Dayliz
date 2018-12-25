@@ -26,8 +26,6 @@ class ProductRepository extends ServiceEntityRepository
     {
         $date = new \DateTime('midnight');
 
-
-
         return $this->createQueryBuilder('p')
             ->where('p.category = :category')
             ->andWhere('p.date = :val')
