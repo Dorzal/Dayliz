@@ -20,7 +20,7 @@ class Interest
     /**
      * @ORM\Column(type="array", nullable=true)
      */
-    private $category_id = [];
+    private $category_id;
 
     /**
      * One interet has many category. This is the inverse side.
@@ -38,12 +38,12 @@ class Interest
         return $this->id;
     }
 
-    public function getCategoryId(): ?array
+    public function getCategoryId()
     {
         return $this->category_id;
     }
 
-    public function setCategoryId(?array $category_id): self
+    public function setCategoryId($category_id): self
     {
         $this->category_id = $category_id;
 

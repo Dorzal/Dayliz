@@ -81,6 +81,12 @@ class User implements UserInterface
         $this->plainPassword = $password;
     }
 
+    public function setInterest($interest){
+        $this->interest = $interest;
+
+        return $this;
+    }
+
 
 
     public function getId(): ?int

@@ -33,11 +33,6 @@ class Category
     private $products;
 
 
-    /**
-     * @ORM\ManyToOne(targetEntity="Interest", inversedBy="category")
-     */
-    private $interest;
-
     public function __construct()
     {
         $this->products = new ArrayCollection();

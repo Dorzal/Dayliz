@@ -4,7 +4,9 @@
     <h1>Choisissez vos centre d'intérêts</h1>
 
     {{ form_start(form) }}
-    {{ form_row(form.name, {'value': 'id'}) }}
+    {{ form_row(form.mode)}}
+    {{ form_row(form.voiture)}}
+    {{ form_row(form.technologie)}}
     <button type="submit">Register!</button>
     {{ form_end(form) }}
 
