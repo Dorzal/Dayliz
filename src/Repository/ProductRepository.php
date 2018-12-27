@@ -22,7 +22,7 @@ class ProductRepository extends ServiceEntityRepository
 
 
 
-    public function active($category)
+    public function activeByCategory($category)
     {
         $date = new \DateTime('midnight');
 
@@ -33,7 +33,19 @@ class ProductRepository extends ServiceEntityRepository
             ->setParameter('val', $date)
             ->getQuery()
             ->getResult()
-        ;
+            ;
+    }
+
+    public function active()
+    {
+        $date = new \DateTime('midnight');
+
+        return $this->createQueryBuilder('p')
+            ->Where('p.date = :val')
+            ->setParameter('val', $date)
+            ->getQuery()
+            ->getResult()
+            ;
     }
 
 }

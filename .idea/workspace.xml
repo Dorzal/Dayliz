@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d2d87f1-6dbc-4ed3-9bdb-19ab2b4bf0c5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/ProductRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ProductRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/category/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/category/index.html.twig" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/vendor/doctrine/annotations/" />
@@ -44,25 +41,27 @@
     <session id="-1116506067">
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="php" value="1" />
           <entry key="twig" value="1" />
           <entry key="yaml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="PHP" value="1" />
           <entry key="Twig" value="1" />
           <entry key="YAML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="twig" value="2" />
+          <entry key="twig" value="14" />
           <entry key="yaml" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Twig" value="2" />
+          <entry key="Twig" value="14" />
           <entry key="YAML" value="3" />
         </counts>
       </usages-collector>
@@ -101,15 +100,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/index.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="37" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DataFixtures/AppFixtures.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
@@ -142,11 +132,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/category/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+            <state relative-caret-position="119">
+              <caret line="7" column="53" selection-start-line="7" selection-start-column="53" selection-end-line="7" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -156,6 +146,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="527">
               <caret line="31" column="74" selection-start-line="31" selection-start-column="74" selection-end-line="31" selection-end-column="74" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Repository/ProductRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="544">
+              <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -217,7 +216,6 @@
         <option value="$PROJECT_DIR$/src/Admin/CategoryAdmin.php" />
         <option value="$PROJECT_DIR$/templates/category/show.html.twig" />
         <option value="$PROJECT_DIR$/templates/product/show.html.twig" />
-        <option value="$PROJECT_DIR$/src/Repository/ProductRepository.php" />
         <option value="$PROJECT_DIR$/src/Controller/ProductController.php" />
         <option value="$PROJECT_DIR$/templates/base.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/CategoryController.php" />
@@ -232,6 +230,7 @@
         <option value="$PROJECT_DIR$/src/DataFixtures/CategoryFixtures.php" />
         <option value="$PROJECT_DIR$/config/routes.yaml" />
         <option value="$PROJECT_DIR$/templates/category/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/Repository/ProductRepository.php" />
       </list>
     </option>
   </component>
@@ -539,7 +538,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97576000" />
+    <option name="totallyTimeSpent" value="97801000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -681,13 +680,6 @@
           <folding>
             <element signature="e#117#140#0#PHP" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository/ProductRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
         </state>
       </provider>
     </entry>
@@ -861,6 +853,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/category/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="53" selection-start-line="7" selection-start-column="53" selection-end-line="7" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
@@ -868,10 +867,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/category/index.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/Repository/ProductRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+        <state relative-caret-position="544">
+          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
         </state>
       </provider>
     </entry>
