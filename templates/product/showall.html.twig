@@ -1,0 +1,11 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h1 class="my-4">Les produits du jour</h1>
+
+    {% for product in product %}
+
+        <a href="{{ path('product', {'id': product.getId()}) }}"><h3>{{ product.name }}</h3></a>
+        <hr>
+    {% endfor %}
+{% endblock %}
