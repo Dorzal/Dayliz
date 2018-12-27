@@ -8,4 +8,6 @@
                 <a href="{{ path('product', {'id': category.getId()}) }}"><h3>{{ category.name }}</h3></a>
         <hr>
     {% endfor %}
+
+    <a href="{{ path('all_product') }}"><h3>Tous les produits</h3></a>
 {% endblock %}

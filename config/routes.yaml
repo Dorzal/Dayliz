@@ -19,6 +19,15 @@ category:
   path: /category/index
   defaults: { _controller: 'App\Controller\CategoryController::index' }
 
-product:
+product_by_category:
   path: /product/{id}
   defaults: { _controller: 'App\Controller\ProductController::show' }
+
+all_product:
+  path: /all
+  defaults: { _controller: 'App\Controller\ProductController::showAll' }
+
+show_product:
+  path: /product
+  defaults: { _controller: 'App\Controller\ProductController:showProduct'}
+
