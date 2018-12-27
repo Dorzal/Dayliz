@@ -5,9 +5,9 @@
 
     {% for category in category %}
 
-                <a href="{{ path('product_by_category', {'id': category.getId()}) }}"><h3>{{ category.name }}</h3></a>
+                <a href="{{ path('product_by_category', {'id': category.getId()}) }}"><img src="{{ category.logo }}" width="25px" height="25px"><h3>{{ category.name }}</h3></a>
         <hr>
     {% endfor %}
 
-    <a href="{{ path('all_product') }}"><h3>Tous les produits</h3></a>
+    <a href="{{ path('all_product') }}"><h3>Toutes les catégories</h3></a>
 {% endblock %}
