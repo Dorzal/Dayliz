@@ -5,7 +5,7 @@
 
     {% for product in product %}
 
-        <a href="{{ path('product', {'id': product.getId()}) }}"><h3>{{ product.name }}</h3></a>
+        <a href="{{ path('show_product', {'id': product.getId()}) }}"><h3>{{ product.name }}</h3></a>
         <hr>
     {% endfor %}
 {% endblock %}
