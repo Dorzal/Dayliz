@@ -28,6 +28,6 @@ all_product:
   defaults: { _controller: 'App\Controller\ProductController::showAll' }
 
 show_product:
-  path: /product/{id}
+  path: /target/{id}
   defaults: { _controller: 'App\Controller\ProductController:showProduct'}
 

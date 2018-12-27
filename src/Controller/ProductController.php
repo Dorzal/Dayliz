@@ -37,7 +37,7 @@ class ProductController extends AbstractController
 
     public function showProduct(EntityManagerInterface $em, int $id): Response {
 
-        $product = $em->getRepository(Product::class)->find($id);
+        $product = $em->getRepository(Product::class)->focus($id);
         return $this->render('product/show.html.twig', [
             'product' => $product ]);
 

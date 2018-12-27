@@ -48,4 +48,18 @@ class ProductRepository extends ServiceEntityRepository
             ;
     }
 
+    public function focus($id){
+
+        $date = new \DateTime('midnight');
+
+        return $this->createQueryBuilder('p')
+            ->Where('p.date = :val')
+            ->andWhere('p.id = :id')
+            ->setParameter('val', $date)
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
 }
