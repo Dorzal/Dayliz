@@ -1,10 +1,19 @@
 {% extends "base.html.twig" %}
 {% block body %}
-    <h1>Bienvenue sur Dayliz</h1>
 
-    <a href="{{ path('category') }}"><h3>Connexion</h3></a>
-    <a href="{{ path('register') }}"><h3>Inscription</h3></a>
 
-    <p>Présentation du site/appli</p>
+    <main>
+        <h1>Dayliz</h1>
+        <div id="paraph">
+        <p>Caxime antea dierum hac Ergo multa cumulus pertinerent hominis tributus tributus causa cumulus ad cum idem decreverim publicae rei.</p>
+        </div>
+
+        <div id="intro">
+            <a class="btn-index" href="{{ path('category') }}"><p>Connexion</p></a>
+            <a class="btn-index" href="{{ path('register') }}"><p>Inscription</p></a>
+        </div>
+    </main>
 
 {% endblock %}
+
+

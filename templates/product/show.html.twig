@@ -1,12 +1,16 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    {% for product in product %}
-        <p>{{ product.name }}</p>
-        <p>{{ product.markid.getName() }}</p>
-        <img src="{{ product.image }}"/>
-        <p>{{ product.describe }}</p>
-        <p>{{ product.link }}</p>
-    {% endfor %}
+    <main>
+        <div class="product">
+            {% for product in product %}
+                <p>{{ product.name }}</p>
+                <p>{{ product.markid.getName() }}</p>
+                <img src="{{ product.image }}" class="img-product"/>
+                <p>{{ product.describe }}</p>
+                <a href="{{ product.link }}">ça m'interesse</a>
 
+            {% endfor %}
+        </div>
+    </main>
 {% endblock %}

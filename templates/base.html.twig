@@ -4,9 +4,20 @@
         <meta charset="UTF-8">
         <title>{% block title %}Dayliz{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
+        <link rel="stylesheet" href="{{ asset('vendor/css/main.css') }}">
+        <link href="https://fonts.googleapis.com/css?family=Pacifico|Roboto" rel="stylesheet">
+
     </head>
     <body>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
+
+    <footer>
+        {% block footer %}
+
+            &copy; Copyright 2019 by <a href="#">Dayliz</a>.
+
+        {% endblock %}
+    </footer>
 </html>

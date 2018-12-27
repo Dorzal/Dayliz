@@ -1,13 +1,17 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    <h1 class="my-4">Liste des Categories</h1>
+    <main>
+        <h2>Liste des Categories</h2>
 
-    {% for category in category %}
+        {% for category in category %}
 
-                <a href="{{ path('product_by_category', {'id': category.getId()}) }}"><img src="{{ category.logo }}" width="25px" height="25px"><h3>{{ category.name }}</h3></a>
-        <hr>
-    {% endfor %}
+                    <a href="{{ path('product_by_category', {'id': category.getId()}) }}" class="btn-category"><h3><img src="{{ category.logo }}" class="ico">{{ category.name }}</h3></a>
 
-    <a href="{{ path('all_product') }}"><h3>Toutes les catégories</h3></a>
+        {% endfor %}
+
+            <a href="{{ path('all_product') }}" class="btn-category" style="text-align: center"><h3>Toutes les catégories</h3></a>
+
+
+    </main>
 {% endblock %}

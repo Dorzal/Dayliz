@@ -1,0 +1,119 @@
+body{
+
+    background-color: #27ae60;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+main {
+    width: 960px;
+    margin: auto;
+    height: 50em;
+}
+
+
+#intro{
+    float: right;
+    width: 49%;
+    text-align: center;
+    border-left: 2px white solid;
+
+
+}
+
+h1{
+    font-size: 150px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    font-family: 'Pacifico', cursive;
+}
+
+#paraph{
+    float: left;
+    width: 49%;
+    font-size: 17px;
+    color : black;
+}
+
+a {
+    text-decoration: none;
+}
+
+.btn-index p{
+    border-radius: 30px;
+    border: 2px solid white;
+    width: 60%;
+    margin: auto;
+    margin-bottom: 20px;
+    font-size: 17px;
+    padding:13px 0 13px 0;
+
+    color : white;
+}
+
+.btn-index p:hover{
+    background-color: white;
+    color: #27ae60;
+}
+
+footer{
+
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin: auto;
+}
+
+.btn-category h3{
+    border-radius: 5px;
+    border: 2px solid #353b48;
+    width: 60%;
+    margin: auto;
+    margin-bottom: 20px;
+    font-size: 22px;
+    padding:17px 0 17px 0;
+    background-color: #353b48;
+    color : #dcdde1;
+}
+
+.btn-category h3:hover{
+
+    box-shadow: 3px 2px 2px #dcdde1;
+
+}
+
+h2{
+    text-align:center;
+    padding: 40px;
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    font-family: 'Pacifico', cursive;
+}
+
+.ico{
+    width: 25px;
+    height: 25px;
+    margin-right: 15px;
+    margin-left: 15px;
+
+}
+
+.img-product{
+    width: 70%;
+    height: 70%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.product{
+    background-color: white;
+}
+
+.product p{
+    width: 60%;
+    text-align: center;
+}

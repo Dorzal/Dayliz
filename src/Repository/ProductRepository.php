@@ -24,7 +24,8 @@ class ProductRepository extends ServiceEntityRepository
 
     public function activeByCategory($category)
     {
-        $date = new \DateTime('midnight');
+        $date = new \DateTime('midnight',  new \DateTimeZone('Europe/Paris'));
+
 
         return $this->createQueryBuilder('p')
             ->where('p.category = :category')
@@ -38,7 +39,7 @@ class ProductRepository extends ServiceEntityRepository
 
     public function active()
     {
-        $date = new \DateTime('midnight');
+        $date = new \DateTime('midnight',  new \DateTimeZone('Europe/Paris'));
 
         return $this->createQueryBuilder('p')
             ->Where('p.date = :val')
@@ -50,7 +51,7 @@ class ProductRepository extends ServiceEntityRepository
 
     public function focus($id){
 
-        $date = new \DateTime('midnight');
+        $date = new \DateTime('midnight',  new \DateTimeZone('Europe/Paris'));
 
         return $this->createQueryBuilder('p')
             ->Where('p.date = :val')
