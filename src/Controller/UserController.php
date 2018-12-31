@@ -9,6 +9,7 @@
 namespace App\Controller;
 
 
+use App\Entity\Category;
 use App\Entity\User;
 use App\Form\InterestType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -20,21 +21,21 @@ class UserController extends AbstractController
 {
 
     private $security;
+
+
     public function __construct(Security $security)
     {
         $this->security = $security;
     }
 
 
-    public function addCategoryToFavoritesInterest(Request $request, EntityManagerInterface $em) {
-        $user = new User();
-
+    public function addCategoryToFavoritesInterest(Request $request, EntityManagerInterface $em,int $id ) {
+        $user = $em->getRepository(User::class)->find($id);
         $form = $this->createForm(InterestType::class, $user);
-        $category = $form->getData();
         $form->handleRequest($request);
+
         if ($form->isSubmitted()){
-            $category->getUsersFav()->add($user);
-            $user->getFavoritesInterests()->add($category);
+            $em->persist($user);
             $em->flush();
         }
 

@@ -7,7 +7,7 @@ login:
   defaults: { _controller: 'App\Controller\SecurityController::login' }
 
 interest:
-  path: /interest
+  path: /interest/{id}
   defaults: { _controller: 'App\Controller\UserController::addCategoryToFavoritesInterest' }
 
 register:

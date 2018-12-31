@@ -15,7 +15,7 @@ class Category
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id;
+    protected $id;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -36,7 +36,7 @@ class Category
      * @var User
      * @ORM\ManyToMany(targetEntity="User", mappedBy="interests")
      */
-    private $user;
+    protected $user;
 
 
     public function __construct()
@@ -55,6 +55,19 @@ class Category
     public function setUsersFav(User $usersFav) {
         $this->user = $usersFav;
     }
+
+    public function addUser(User $user)
+    {
+        if ($this->user->contains($user)) {
+            return;
+        }
+        $this->user->add($user);
+        $user->addInterest($this);
+    }
+
+
+
+
 
 
 

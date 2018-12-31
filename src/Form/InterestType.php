@@ -7,8 +7,6 @@
  */
 
 namespace App\Form;
-
-
 use App\Entity\Category;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -21,7 +19,7 @@ class InterestType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('firstname', EntityType::class, array(
+        $builder->add('interests', EntityType::class, array(
             'class' => Category::class,
             'choice_label' => 'name',
             // uses the User.username property as the visible option string

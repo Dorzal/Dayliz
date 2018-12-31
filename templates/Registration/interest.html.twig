@@ -1,12 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Centre d'intérêts{% endblock %}
-
 {% block body %}
 
     {{ form_start(form) }}
-    {{ form_row(form.firstname) }}
-    <button type="submit">Register!</button>
+    {{ form_row(form) }}
+    <button type="submit">c'est bon</button>
     {{ form_end(form) }}
 
 {% endblock %}

@@ -59,7 +59,7 @@ class User implements UserInterface
     private $update_at;
 
     /**
-     * @Assert\NotBlank
+     *
      * @Assert\Length(max=4096)
      */
     private $plainPassword;
@@ -173,8 +173,17 @@ class User implements UserInterface
     }
 
 
-    public function getFavoritesInterests() {
+    public function getInterests() {
         return $this->interests;
+    }
+
+    public function addInterest($category)
+    {
+        if ($this->interests->contains($category)) {
+            return;
+        }
+        $this->interests->add($category);
+        $category->addUser($this);
     }
 
 
