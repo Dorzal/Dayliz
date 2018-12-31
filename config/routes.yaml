@@ -16,7 +16,7 @@ register:
 
 
 category:
-  path: /category/index
+  path: /category/all
   defaults: { _controller: 'App\Controller\CategoryController::index' }
 
 product_by_category:
