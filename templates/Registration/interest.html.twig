@@ -1,18 +1,12 @@
-{% extends "base.html.twig" %}
+{% extends 'base.html.twig' %}
+
+{% block title %}Centre d'intérêts{% endblock %}
 
 {% block body %}
-    <h1>Choisissez vos centre d'intérêts</h1>
 
     {{ form_start(form) }}
-    {{ form_row(form.mode)}}
-    {{ form_row(form.voiture)}}
-    {{ form_row(form.technologie)}}
+    {{ form_row(form.name) }}
     <button type="submit">Register!</button>
     {{ form_end(form) }}
 
-
-
 {% endblock %}
-
-
-

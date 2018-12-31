@@ -65,11 +65,18 @@ class User implements UserInterface
     private $plainPassword;
 
     /**
-     * One user has One interet.
-     * @ORM\OneToOne(targetEntity="Interest")
-     * @ORM\JoinColumn(name="interest_id", referencedColumnName="id")
+     * @var ineterests
+     * @ORM\ManyToMany(targetEntity="Category", inversedBy="user", cascade={"persist"}))
+     * @ORM\JoinTable(name="interest")
      */
-    private $interest;
+    protected $interests;
+
+
+    public function __construct()
+    {
+        $this->interests = new ArrayCollection();
+    }
+
 
     public function getPlainPassword()
     {
@@ -81,11 +88,6 @@ class User implements UserInterface
         $this->plainPassword = $password;
     }
 
-    public function setInterest($interest){
-        $this->interest = $interest;
-
-        return $this;
-    }
 
 
 
@@ -168,6 +170,16 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+
+    public function getFavoritesInterests() {
+        return $this->interests;
+    }
+
+
+    public function setFavoritesInterests(Category $interet) {
+        $this->interests = $interet;
     }
 
     public function getFirstname(): ?string

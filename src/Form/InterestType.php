@@ -12,9 +12,8 @@ namespace App\Form;
 use App\Entity\Category;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
+
 
 
 class InterestType extends AbstractType
@@ -22,21 +21,13 @@ class InterestType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('mode', CheckboxType::class, array(
-            'label'    => 'Mode',
-            'required' => false,
+        $builder->add('name', EntityType::class, array(
+            'class' => Category::class,
+            'choice_label' => 'name',
+            // uses the User.username property as the visible option string
+            'multiple' => true,
+            'expanded' => true,
         ));
-        $builder->add('voiture', CheckboxType::class, array(
-            'label'    => 'Voiture',
-            'required' => false,
-        ));
-        $builder->add('technologie', CheckboxType::class, array(
-            'label'    => 'Technologie',
-            'required' => false,
-        ));
-
-
-
     }
 
 }

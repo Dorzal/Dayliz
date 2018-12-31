@@ -32,11 +32,30 @@ class Category
      */
     private $products;
 
+    /**
+     * @var User
+     * @ORM\ManyToMany(targetEntity="User", mappedBy="interests")
+     */
+    private $user;
+
 
     public function __construct()
     {
         $this->products = new ArrayCollection();
+        $this->user = new ArrayCollection();
     }
+
+
+
+    public function getUsersFav() {
+        return $this->user;
+    }
+
+
+    public function setUsersFav(User $usersFav) {
+        $this->user = $usersFav;
+    }
+
 
 
     /**
