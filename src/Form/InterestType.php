@@ -21,7 +21,7 @@ class InterestType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name', EntityType::class, array(
+        $builder->add('firstname', EntityType::class, array(
             'class' => Category::class,
             'choice_label' => 'name',
             // uses the User.username property as the visible option string

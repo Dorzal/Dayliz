@@ -9,20 +9,13 @@
 namespace App\Controller;
 
 use App\Entity\Category;
-use App\Form\InterestType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Security\Core\Security;
 
 class CategoryController extends AbstractController
 {
 
-    private $security;
-    public function __construct(Security $security)
-    {
-        $this->security = $security;
-    }
+
 
     public function index(EntityManagerInterface $em)
     {
@@ -34,22 +27,6 @@ class CategoryController extends AbstractController
         ]);
     }
 
-    public function addCategoryToFavoritesInterest(Request $request, EntityManagerInterface $em) {
-        $user = $this->security->getUser();
-        $category = new Category();
-        $form = $this->createForm(InterestType::class, $category);
-        $form->handleRequest($request);
-        if ($form->isSubmitted()){
-            $category->getUsersFav()->add($user);
-            $user->getFavoritesInterests()->add($category);
-            $em->flush();
-        }
-
-        return $this->render(
-            'registration/interest.html.twig',
-            array('form' => $form->createView())
-        );
-    }
 
 
 

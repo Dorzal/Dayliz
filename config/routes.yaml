@@ -8,7 +8,7 @@ login:
 
 interest:
   path: /interest
-  defaults: { _controller: 'App\Controller\CategoryController::addCategoryToFavoritesInterest' }
+  defaults: { _controller: 'App\Controller\UserController::addCategoryToFavoritesInterest' }
 
 register:
   path: /register
