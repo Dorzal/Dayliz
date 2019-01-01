@@ -26,3 +26,8 @@ show_product:
   path: /target/{id}
   defaults: { _controller: 'App\Controller\ProductController:showProduct'}
 
+show_by_interest:
+  path: /myinterest
+  defaults: { _controller: 'App\Controller\ProductController:showProductByInterest'}
+
+

@@ -49,6 +49,20 @@ class ProductRepository extends ServiceEntityRepository
             ;
     }
 
+    public function activeByInterest($interest)
+    {
+        $date = new \DateTime('midnight',  new \DateTimeZone('Europe/Paris'));
+
+        return $this->createQueryBuilder('p')
+            ->Where('p.date = :val')
+            ->andWhere('p.category In(:interest)')
+            ->setParameter('val', $date)
+            ->setParameter('interest', array_values($interest))
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
     public function focus($id){
 
         $date = new \DateTime('midnight',  new \DateTimeZone('Europe/Paris'));

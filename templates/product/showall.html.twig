@@ -4,7 +4,6 @@
 
     {% block menu %}
 
-
         {% for category in category %}
 
             <a href="{{ path('product_by_category', {'id': category.getId()}) }}" class="btn-category"><h3><img src="{{ category.logo }}" class="ico">{{ category.name }}</h3></a>

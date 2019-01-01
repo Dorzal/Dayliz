@@ -65,7 +65,6 @@ class User implements UserInterface
     private $plainPassword;
 
     /**
-     * @var ineterests
      * @ORM\ManyToMany(targetEntity="Category", inversedBy="user", cascade={"persist"}))
      * @ORM\JoinTable(name="interest")
      */

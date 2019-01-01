@@ -19,6 +19,12 @@ class UserRepository extends ServiceEntityRepository
         parent::__construct($registry, User::class);
     }
 
+    public function byInterest($id){
+        $qb = $this->createQueryBuilder('u')->join('u.interests', 't')->addSelect('t')->where('u.id = :id')->setParameter('id', $id);
+        return $resultArray = $qb->getQuery()->getResult(\Doctrine\ORM\Query::HYDRATE_ARRAY);
+
+    }
+
     // /**
     //  * @return User[] Returns an array of User objects
     //  */
