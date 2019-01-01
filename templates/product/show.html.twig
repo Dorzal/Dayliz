@@ -1,6 +1,17 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
+
+    {% block menu %}
+        <nav>
+            {% for category in category %}
+                <a href="{{ path('product_by_category', {'id': category.getId()}) }}" class="btn-category"><h3><img src="{{ category.logo }}" class="ico">{{ category.name }}</h3></a>
+            {% endfor %}
+            <a href="{{ path('all_product') }}" class="btn-category-all" style="text-align: center"><h3>Toutes les catégories</h3></a>
+            <a href="{{ path('interest', {'id': app.user.id}) }}" class="btn-category-interest"><h3>Ajouter centre d'interet</h3></a>
+        </nav>
+    {% endblock %}
+
     <main>
         <div class="product">
             {% for product in product %}
@@ -9,7 +20,6 @@
                 <img src="{{ product.image }}" class="img-product"/>
                 <p>{{ product.describe }}</p>
                 <a href="{{ product.link }}">ça m'interesse</a>
-
             {% endfor %}
         </div>
     </main>

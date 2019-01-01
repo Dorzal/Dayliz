@@ -11,12 +11,21 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserType;
+use App\Security\LoginFormAuthenticator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class RegistrationController extends AbstractController
 {
+
+    private $_connection;
+    public function __construct(LoginFormAuthenticator $loginFormAuthenticator)
+    {
+        $this->_connection = $loginFormAuthenticator;
+
+    }
 
 
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder)
@@ -40,6 +49,11 @@ class RegistrationController extends AbstractController
 
             // ... do any other work - like sending them an email, etc
             // maybe set a "flash" success message for the user
+
+            $token = new UsernamePasswordToken($user, null, 'main', $user->getRoles());
+            $this->container->get('security.token_storage')->setToken($token);
+            $this->container->get('session')->set('_security_main', serialize($token));
+
             return $this->redirectToRoute('category');
         }
 

@@ -2,6 +2,8 @@ body{
 
     background-color: #27ae60;
     font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
 
 }
 
@@ -66,21 +68,19 @@ footer{
     margin: auto;
 }
 
-.btn-category h3{
-    border-radius: 5px;
-    border: 2px solid #353b48;
-    width: 60%;
-    margin: auto;
-    margin-bottom: 20px;
-    font-size: 22px;
-    padding:17px 0 17px 0;
+nav{
+    float: left;
     background-color: #353b48;
-    color : #dcdde1;
+    height: 100em;
+}
+
+.btn-category h3{
+
+    color: white;
 }
 
 .btn-category h3:hover{
 
-    box-shadow: 3px 2px 2px #dcdde1;
 
 }
 
