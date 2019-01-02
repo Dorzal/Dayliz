@@ -6,6 +6,9 @@ login:
   path: /security/login
   defaults: { _controller: 'App\Controller\SecurityController::login' }
 
+app_logout:
+  path: /logout
+
 interest:
   path: /interest/{id}
   defaults: { _controller: 'App\Controller\UserController::addCategoryToFavoritesInterest' }

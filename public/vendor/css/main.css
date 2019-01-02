@@ -3,6 +3,8 @@
     padding: 0;
 }
 
+
+
 body{
 
     background-color: #27ae60;
@@ -30,8 +32,6 @@ main {
     width: 49%;
     text-align: center;
     border-left: 2px white solid;
-
-
 }
 
 h1{
@@ -124,4 +124,34 @@ h2{
 .product p{
     width: 60%;
     text-align: center;
+}
+
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    main{
+        width: 100%;
+    }
+
+    #paraph{
+        display: none;
+    }
+
+    #intro{
+        margin-top: 20%;
+        border-left: none ;
+        float: none;
+        width: 100%;
+    }
+
+    .btn-index p{
+        width: 50%;
+        margin: auto;
+        margin-bottom: 40px;
+        font-size: 30px;
+        padding:17px 0 17px 0;
+    }
+
+    h1{
+        margin-top: 40%;
+    }
 }
