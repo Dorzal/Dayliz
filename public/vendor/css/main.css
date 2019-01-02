@@ -40,6 +40,8 @@ h1{
     font-weight: bold;
     color: white;
     font-family: 'Pacifico', cursive;
+    margin-bottom: 5%;
+    margin-top: 10%;
 }
 
 #paraph{
@@ -125,6 +127,95 @@ h2{
     width: 60%;
     text-align: center;
 }
+
+.form-control {
+    width: 100%;
+    padding: 25px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.btn-connect {
+    width: 100%;
+    background-color: #27ae60;
+    color: white;
+    padding: 20px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-connect:hover {
+    background-color: #45a049;
+}
+
+.form{
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    width: 40%;
+    margin: auto;
+}
+
+.sr-only{
+    display: none;
+}
+
+#user_email{
+    width: 100%;
+    padding: 25px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#user_lastname{
+    width: 100%;
+    padding: 25px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#user_firstname{
+    width: 100%;
+    padding: 25px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#user_plainPassword_first{
+    width: 100%;
+    padding: 25px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#user_plainPassword_second{
+    width: 100%;
+    padding: 25px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
 
 
 

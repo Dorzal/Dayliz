@@ -2,8 +2,13 @@
 
 {% block title %}Inscription{% endblock %}
 
+
+
 {% block body %}
 
+    <h1>Inscris-toi</h1>
+
+    <div class="form">
     {{ form_start(form) }}
     {{ form_row(form.email) }}
     {{ form_row(form.lastname) }}
@@ -12,7 +17,8 @@
     {{ form_row(form.plainPassword.second) }}
     {{ form_row(form.termsAccepted) }}
 
-    <button type="submit">Register!</button>
+    <button type="submit" class="btn-connect">Register!</button>
     {{ form_end(form) }}
+    </div>
 
 {% endblock %}

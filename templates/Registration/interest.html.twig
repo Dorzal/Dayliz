@@ -1,10 +1,89 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
 
-    {{ form_start(form) }}
-    {{ form_row(form) }}
-    <button type="submit">c'est bon</button>
-    {{ form_end(form) }}
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30%;
+        }
+
+        input {
+            position: absolute;
+            left: -9999px;
+        }
+
+        .required{
+            display: none;
+        }
+
+        label {
+            display: block;
+            position: relative;
+            margin: 20px;
+            padding: 15px 30px 15px 62px;
+            border: 3px solid #fff;
+            border-radius: 100px;
+            color: #fff;
+            background-color: #353b48;
+            box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+            white-space: nowrap;
+            cursor: pointer;
+            user-select: none;
+            transition: background-color .2s, box-shadow .2s;
+
+        }
+
+        label::before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 10px;
+            bottom: 10px;
+            left: 10px;
+            width: 32px;
+            border: 3px solid #fff;
+            border-radius: 100px;
+            transition: background-color .2s;
+        }
+
+        label:hover, input:focus + label {
+            box-shadow: 0 0 20px rgba(0, 0, 0, .6);
+        }
+
+        input:checked + label {
+            background-color: #ab576c;
+        }
+
+        input:checked + label::before {
+            background-color: #fff;
+        }
+
+        #btn-interest{
+            width: 30%;
+            background-color: #c0392b;
+            color: white;
+            padding: 20px 20px;
+            margin-left: 35%;
+            margin-right: 40%;
+            border: none;
+            border-radius: 80px;
+            cursor: pointer;
+        }
+    </style>
+
+
+    <div class="container">
+        {{ form_start(form) }}
+        {{ form_row(form) }}
+        <button type="submit" id="btn-interest">Ok</button>
+        {{ form_end(form) }}
+    </div>
 
 {% endblock %}
