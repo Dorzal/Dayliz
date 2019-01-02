@@ -54,7 +54,7 @@ class RegistrationController extends AbstractController
             $this->container->get('security.token_storage')->setToken($token);
             $this->container->get('session')->set('_security_main', serialize($token));
 
-            return $this->redirectToRoute('all_product');
+            return $this->redirect('/interest/'.$user->getId());
         }
 
         return $this->render(
