@@ -37,6 +37,7 @@ class UserController extends AbstractController
         if ($form->isSubmitted()){
             $em->persist($user);
             $em->flush();
+            return $this->redirectToRoute('show_by_interest');
         }
 
         return $this->render(

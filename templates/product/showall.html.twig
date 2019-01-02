@@ -10,11 +10,11 @@
 
         {% endfor %}
 
-        <a href="{{ path('all_product') }}" class="btn-category" style="text-align: center"><h3>Toutes les catégories</h3></a>
+        <a href="{{ path('all_product') }}" class="btn-category" ><h3>Toutes les catégories</h3></a>
 
         <a href="{{ path('interest', {'id': app.user.id}) }}" class="brn-category"><h3>Ajouter centre d'interet</h3></a>
 
-        <a href="{{ path('app_logout') }}" class="brn-category"><h3>Logout</h3></a>
+        <a href="{{ path('app_logout') }}" class="btn-logout"><h3>Logout</h3></a>
 
     {% endblock %}
 
