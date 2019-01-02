@@ -2,6 +2,7 @@
 
 {% block body %}
 
+
     {% block menu %}
         <div id="menu">
             <nav>
@@ -15,11 +16,8 @@
         </div>
 
     {% endblock %}
-
-    <main>
-
         {% for product in product %}
-            <div class="product">
+            <div>
                     <h3>{{ product.name }}</h3>
                     <img src="{{ product.image }}" class="img-product"/>
                     <p id="mark-p">{{ product.markid.getName() }}</p>
@@ -27,6 +25,5 @@
                     <a href="{{ product.link }}">En savoir plus</a>
             </div>
         {% endfor %}
-
-    </main>
 {% endblock %}
+
