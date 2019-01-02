@@ -17,14 +17,16 @@
     {% endblock %}
 
     <main>
-        <div class="product">
-            {% for product in product %}
-                <p>{{ product.name }}</p>
-                <p>{{ product.markid.getName() }}</p>
-                <img src="{{ product.image }}" class="img-product"/>
-                <p>{{ product.describe }}</p>
-                <a href="{{ product.link }}">En savoir plus</a>
-            {% endfor %}
-        </div>
+
+        {% for product in product %}
+            <div class="product">
+                    <h3>{{ product.name }}</h3>
+                    <img src="{{ product.image }}" class="img-product"/>
+                    <p id="mark-p">{{ product.markid.getName() }}</p>
+                    <p id="describe-p">{{ product.describe }}</p>
+                    <a href="{{ product.link }}">En savoir plus</a>
+            </div>
+        {% endfor %}
+
     </main>
 {% endblock %}
