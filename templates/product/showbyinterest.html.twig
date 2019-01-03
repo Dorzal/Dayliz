@@ -3,15 +3,17 @@
 {% block body %}
 
 
+    <h2 id="date">{{ "now"|date("j/m", "Europe/Paris") }}</h2>
     {% block menu %}
         <div id="menu">
             <nav>
+                <h2>Dayliz</h2>
+                <a href="{{ path('all_product') }}" class="btn-category" ><h3><img src="{{ asset('vendor/img/home-icon-silhouette.png') }}" class="ico">Toutes les catégories</h3></a>
                 {% for category in category %}
-                    <a href="{{ path('product_by_category', {'id': category.getId()}) }}" class="btn-category"><h3><img src="{{ category.logo }}" class="ico">{{ category.name }}</h3></a>
+                    <a href="{{ path('product_by_category', {'id': category.getId()}) }}" class="btn-category"><h3><img src="{{ asset('vendor/img/light-bulb.png') }}" class="ico">{{ category.name }}</h3></a>
                 {% endfor %}
-                <a href="{{ path('all_product') }}" class="btn-category-all"><h3>Toutes les catégories</h3></a>
-                <a href="{{ path('interest', {'id': app.user.id}) }}" class="btn-category-interest"><h3>Ajouter centre d'interet</h3></a>
-                <a href="{{ path('app_logout') }}" class="brn-logout"><h3>Logout</h3></a>
+                <a href="{{ path('interest', {'id': app.user.id}) }}" class="btn-category"><h3><img src="{{ asset('vendor/img/favorite.png') }}" class="ico">Ajouter centre d'interet</h3></a>
+                <a href="{{ path('app_logout') }}" class="btn-category"><h3><img src="{{ asset('vendor/img/log-out.png') }}" class="ico">Logout</h3></a>
             </nav>
         </div>
 
