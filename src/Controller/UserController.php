@@ -10,6 +10,7 @@ namespace App\Controller;
 
 
 use App\Entity\Category;
+use App\Entity\Product;
 use App\Entity\User;
 use App\Form\InterestType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -45,5 +46,22 @@ class UserController extends AbstractController
             array('form' => $form->createView())
         );
     }
+
+    public function likeProduct(Request $request, EntityManagerInterface $em) {
+
+
+        $user_id = $request->request->get('user_id');
+        $product_id = $request->request->get('product_id');
+
+        $user = $em->getRepository(User::class)->find($user_id);
+        $product =$em->getRepository(Product::class)->find($product_id);
+
+
+            $user->getLikes()->add($product);
+            $em->flush();
+
+    }
+
+
 
 }

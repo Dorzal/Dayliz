@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -50,6 +51,34 @@ class Product
      * @ORM\ManyToOne(targetEntity="Mark", inversedBy="products")
      */
     private $mark;
+
+    /**
+     * @var User
+     * @ORM\ManyToMany(targetEntity="User", mappedBy="likes")
+     */
+    protected $user;
+
+    public function __construct() {
+        $this->user = new ArrayCollection();
+    }
+
+    public function getUsersLike() {
+        return $this->user;
+    }
+
+
+    public function setUsersLike(User $usersFav) {
+        $this->user = $usersFav;
+    }
+
+    public function addUser(User $user)
+    {
+        if ($this->user->contains($user)) {
+            return;
+        }
+        $this->user->add($user);
+        $user->addInterest($this);
+    }
 
     public function getMarkId(): ?Mark {
 

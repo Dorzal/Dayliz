@@ -66,11 +66,6 @@ class Category
     }
 
 
-
-
-
-
-
     /**
      * @return Collection | Product[]
      */

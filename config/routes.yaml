@@ -33,4 +33,7 @@ show_by_interest:
   path: /myinterest
   defaults: { _controller: 'App\Controller\ProductController:showProductByInterest'}
 
+like:
+  path: /ajax_request
+  defaults: { _controller: 'App\Controller\UserController:likeProduct' }
 

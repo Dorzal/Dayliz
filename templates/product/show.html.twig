@@ -20,11 +20,8 @@
 
     <div id="wall">
 
-
-
-
-
             {% for product in product %}
+                <button class="ajax">like</button>
                 <div class="product">
                     <h3 id="name-p">{{ product.name }}</h3>
                     <img src="{{ product.image }}" class="img-product"/>
@@ -35,5 +32,27 @@
             {% endfor %}
 
     </div>
+
+    <script>
+        $(document).on('click', 'button.ajax', function(){
+            that = $(this);
+            $.ajax({
+                url:'{{ (path('like')) }}',
+                type: "POST",
+                dataType: "json",
+                data: {
+                    "user_id": {{ app.user.id }},
+                    "product_id": {{ product.getId() }}
+                },
+                async: true,
+                success: function (data)
+                {
+
+                }
+            });
+            return false;
+
+        });
+    </script>
 {% endblock %}
 

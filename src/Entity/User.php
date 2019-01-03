@@ -71,9 +71,17 @@ class User implements UserInterface
     protected $interests;
 
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Product", inversedBy="user", cascade={"persist"}))
+     * @ORM\JoinTable(name="likeprod")
+     */
+    protected $likes;
+
+
     public function __construct()
     {
         $this->interests = new ArrayCollection();
+        $this->likes = new ArrayCollection();
     }
 
 
@@ -169,6 +177,10 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getLikes() {
+        return $this->likes;
     }
 
 
