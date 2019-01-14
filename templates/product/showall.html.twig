@@ -23,7 +23,7 @@
 
     <h2>Les produits du jour</h2>
 
-    {% for product in product %}
+    {% for products in product %}
 
         <a href="{{ path('show_product', {'id': product.getId()}) }}"><h3>{{ product.name }}</h3></a>
         <hr>

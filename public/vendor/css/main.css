@@ -15,6 +15,7 @@ body{
 main {
     width: 960px;
     margin: auto;
+
 }
 
 #date {
@@ -121,8 +122,8 @@ h2{
 }
 
 .img-product{
-    width: 70%;
-    height: 70%;
+    width: 80%;
+    height: 700px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -155,6 +156,13 @@ h2{
 
 #mark-p{
     text-align: right;
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#prod-p{
+    text-align: left;
     margin-top: 10px;
     font-size: 20px;
     font-weight: bold;
