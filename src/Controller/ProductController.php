@@ -73,9 +73,9 @@ class ProductController extends AbstractController
              $data[] = strval($test[0]['interests'][$i]['id']);
         }
         $category = $em->getRepository(Category::class)->findAll();
-        $product = $em->getRepository(Product::class)->activeByInterest($data);
+        $products = $em->getRepository(Product::class)->activeByInterest($data);
         return $this->render('product/showbyinterest.html.twig', [
-            'product' => $product,
+            'products' => $products,
             'category' => $category
         ]);
     }
