@@ -34,5 +34,18 @@ class ProductFixtures extends Fixture {
         $manager->persist($product);
         $manager->flush();
 
+        $produc = new Product();
+
+        $produc->setName('deco');
+        $produc->setCategoryId(1);
+        $produc->setDescribe('On sait depuis longtemps que travailler avec du texte lisible et contenant du sens est source de distractions, et empêche de se concentrer sur la mise en page elle-même. L\'avantage du Lorem Ipsum sur un texte');
+        $produc->setImage('image.png');
+        $produc->setMarkId(1);
+        $produc->setLink('www.link.fr');
+        $produc->setDate(new \DateTime());
+
+        $manager->persist($produc);
+        $manager->flush();
+
     }
 }

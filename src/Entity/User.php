@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -65,23 +66,20 @@ class User implements UserInterface
     private $plainPassword;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Category", inversedBy="user", cascade={"persist"}))
-     * @ORM\JoinTable(name="interest")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Product", inversedBy="users")
      */
-    protected $interests;
-
+    private $likes;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Product", inversedBy="user", cascade={"persist"}))
-     * @ORM\JoinTable(name="likeprod")
+     * @ORM\ManyToMany(targetEntity="App\Entity\SubCategory", inversedBy="users")
      */
-    protected $likes;
+    private $interests;
 
 
     public function __construct()
     {
-        $this->interests = new ArrayCollection();
         $this->likes = new ArrayCollection();
+        $this->interests = new ArrayCollection();
     }
 
 
@@ -94,9 +92,6 @@ class User implements UserInterface
     {
         $this->plainPassword = $password;
     }
-
-
-
 
     public function getId(): ?int
     {
@@ -179,29 +174,6 @@ class User implements UserInterface
         // $this->plainPassword = null;
     }
 
-    public function getLikes() {
-        return $this->likes;
-    }
-
-
-    public function getInterests() {
-        return $this->interests;
-    }
-
-    public function addInterest($category)
-    {
-        if ($this->interests->contains($category)) {
-            return;
-        }
-        $this->interests->add($category);
-        $category->addUser($this);
-    }
-
-
-    public function setFavoritesInterests(Category $interet) {
-        $this->interests = $interet;
-    }
-
     public function getFirstname(): ?string
     {
         return $this->firstname;
@@ -254,6 +226,58 @@ class User implements UserInterface
     public function setUpdateAt(?\DateTimeInterface $update_at): self
     {
         $this->update_at = $update_at;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|product[]
+     */
+    public function getLikes(): Collection
+    {
+        return $this->likes;
+    }
+
+    public function addLike(product $like): self
+    {
+        if (!$this->likes->contains($like)) {
+            $this->likes[] = $like;
+        }
+
+        return $this;
+    }
+
+    public function removeLike(product $like): self
+    {
+        if ($this->likes->contains($like)) {
+            $this->likes->removeElement($like);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|SubCategory[]
+     */
+    public function getInterests(): Collection
+    {
+        return $this->interests;
+    }
+
+    public function addInterest(SubCategory $interest): self
+    {
+        if (!$this->interests->contains($interest)) {
+            $this->interests[] = $interest;
+        }
+
+        return $this;
+    }
+
+    public function removeInterest(SubCategory $interest): self
+    {
+        if ($this->interests->contains($interest)) {
+            $this->interests->removeElement($interest);
+        }
 
         return $this;
     }

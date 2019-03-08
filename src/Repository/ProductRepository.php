@@ -22,16 +22,11 @@ class ProductRepository extends ServiceEntityRepository
 
 
 
-    public function activeByCategory($category)
+    public function subByCategory($category)
     {
-        $date = new \DateTime('midnight',  new \DateTimeZone('Europe/Paris'));
-
-
         return $this->createQueryBuilder('p')
             ->where('p.category = :category')
-            ->andWhere('p.date = :val')
             ->setParameter('category', $category)
-            ->setParameter('val', $date)
             ->getQuery()
             ->getResult()
             ;
@@ -55,7 +50,8 @@ class ProductRepository extends ServiceEntityRepository
 
         return $this->createQueryBuilder('p')
             ->Where('p.date = :val')
-            ->andWhere('p.category In(:interest)')
+            ->andWhere('p.category In')
+            ->andWhere('p.subcategory In(:interest)')
             ->setParameter('val', $date)
             ->setParameter('interest', array_values($interest))
             ->getQuery()

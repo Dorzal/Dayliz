@@ -33,7 +33,7 @@ class ProductController extends AbstractController
 
         $this->denyAccessUnlessGranted('ROLE_USER', null, 'User tried to access a page without having ROLE_ADMIN');
         $category = $em->getRepository(Category::class)->findAll();
-        $product = $em->getRepository(Product::class)->activeByCategory($id);
+        $product = $em->getRepository(Product::class)->subByCategory($id);
 
         return $this->render('product/show.html.twig', [
             'product' => $product,

@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -42,10 +43,6 @@ class Product
      */
     private $date;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="Category", inversedBy="products")
-     */
-    private $category;
 
     /**
      * @ORM\ManyToOne(targetEntity="Mark", inversedBy="products")
@@ -53,31 +50,18 @@ class Product
     private $mark;
 
     /**
-     * @var User
-     * @ORM\ManyToMany(targetEntity="User", mappedBy="likes")
+     * @ORM\ManyToOne(targetEntity="App\Entity\SubCategory", inversedBy="products")
      */
-    protected $user;
+    private $subCategory;
 
-    public function __construct() {
-        $this->user = new ArrayCollection();
-    }
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\User", mappedBy="likes")
+     */
+    private $users;
 
-    public function getUsersLike() {
-        return $this->user;
-    }
-
-
-    public function setUsersLike(User $usersFav) {
-        $this->user = $usersFav;
-    }
-
-    public function addUser(User $user)
+    public function __construct()
     {
-        if ($this->user->contains($user)) {
-            return;
-        }
-        $this->user->add($user);
-        $user->addInterest($this);
+        $this->users = new ArrayCollection();
     }
 
     public function getMarkId(): ?Mark {
@@ -98,27 +82,6 @@ class Product
 
     public function setMark(?Mark $mark): self {
         $this->mark = $mark;
-        return $this;
-    }
-
-    public function getCategoryId(): ?Category {
-
-        return $this->category;
-    }
-
-    public function setCategoryId(?int $category_id): self {
-        $this->category_id = $category_id;
-
-        return $this;
-
-    }
-
-    public function getCategory(){
-        return $this->category;
-    }
-
-    public function setCategory(?Category $category): self {
-        $this->category = $category;
         return $this;
     }
 
@@ -183,6 +146,46 @@ class Product
     public function setDate(\DateTimeInterface $date): self
     {
         $this->date = $date;
+
+        return $this;
+    }
+
+    public function getSubCategory(): ?SubCategory
+    {
+        return $this->subCategory;
+    }
+
+    public function setSubCategory(?SubCategory $subCategory): self
+    {
+        $this->subCategory = $subCategory;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->users->contains($user)) {
+            $this->users[] = $user;
+            $user->addLike($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        if ($this->users->contains($user)) {
+            $this->users->removeElement($user);
+            $user->removeLike($this);
+        }
 
         return $this;
     }

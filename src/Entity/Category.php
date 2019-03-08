@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -28,71 +29,14 @@ class Category
     private $logo;
 
     /**
-     * @ORM\OneToMany(targetEntity="Product", mappedBy="category")
+     * @ORM\OneToMany(targetEntity="App\Entity\SubCategory", mappedBy="Category")
      */
-    private $products;
-
-    /**
-     * @var User
-     * @ORM\ManyToMany(targetEntity="User", mappedBy="interests")
-     */
-    protected $user;
+    private $subCategories;
 
 
     public function __construct()
     {
-        $this->products = new ArrayCollection();
-        $this->user = new ArrayCollection();
-    }
-
-
-
-    public function getUsersFav() {
-        return $this->user;
-    }
-
-
-    public function setUsersFav(User $usersFav) {
-        $this->user = $usersFav;
-    }
-
-    public function addUser(User $user)
-    {
-        if ($this->user->contains($user)) {
-            return;
-        }
-        $this->user->add($user);
-        $user->addInterest($this);
-    }
-
-
-    /**
-     * @return Collection | Product[]
-     */
-    public function getProducts(){
-        return $this->products;
-    }
-
-    public function addProducts(Product $product): self{
-        if(!$this->products->contains($product)){
-            $this->products[] = $product;
-            $product->setCategory($this);
-        }
-
-        return $this;
-    }
-
-    public function removeProducts(Product $product): self {
-
-        if($this->products->contains($product)) {
-            $this->products->removeElement($product);
-            if ($product->getCategory() === $this) {
-                $product->setCategory(null);
-            }
-
-            return $this;
-        }
-
+        $this->subCategories = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -120,6 +64,37 @@ class Category
     public function setLogo(string $logo): self
     {
         $this->logo = $logo;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|SubCategory[]
+     */
+    public function getSubCategories(): Collection
+    {
+        return $this->subCategories;
+    }
+
+    public function addSubCategory(SubCategory $subCategory): self
+    {
+        if (!$this->subCategories->contains($subCategory)) {
+            $this->subCategories[] = $subCategory;
+            $subCategory->setCategory($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSubCategory(SubCategory $subCategory): self
+    {
+        if ($this->subCategories->contains($subCategory)) {
+            $this->subCategories->removeElement($subCategory);
+            // set the owning side to null (unless already changed)
+            if ($subCategory->getCategory() === $this) {
+                $subCategory->setCategory(null);
+            }
+        }
 
         return $this;
     }
