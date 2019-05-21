@@ -64,17 +64,6 @@ class Product
         $this->users = new ArrayCollection();
     }
 
-    public function getMarkId(): ?Mark {
-
-        return $this->mark;
-    }
-
-    public function setMarkId(?int $mark_id): self {
-        $this->mark_id = $mark_id;
-
-        return $this;
-
-    }
 
     public function getMark(){
         return $this->mark;
@@ -162,17 +151,6 @@ class Product
         return $this;
     }
 
-    public function getSubCategoryId(): ?SubCategory {
-
-        return $this->subCategory;
-    }
-
-    public function setSubCategoryId(?int $subCategory_id): self {
-        $this->subCategory_id = $subCategory_id;
-
-        return $this;
-
-    }
 
 
     /**

@@ -27,8 +27,7 @@ class ProductFixtures extends Fixture {
         $product->setName('ps4');
         $product->setDescribe('On sait depuis longtemps que travailler avec du texte lisible et contenant du sens est source de distractions, et empêche de se concentrer sur la mise en page elle-même. L\'avantage du Lorem Ipsum sur un texte');
         $product->setImage('image.png');
-        $product->setSubCategoryId(1);
-        $product->setMarkId(1);
+        //todo: add reference mark and sub_category
         $product->setLink('www.link.fr');
         $product->setDate(new \DateTime());
 
@@ -40,8 +39,7 @@ class ProductFixtures extends Fixture {
         $produc->setName('deco');
         $produc->setDescribe('On sait depuis longtemps que travailler avec du texte lisible et contenant du sens est source de distractions, et empêche de se concentrer sur la mise en page elle-même. L\'avantage du Lorem Ipsum sur un texte');
         $produc->setImage('image.png');
-        $produc->setMarkId(1);
-        $produc->setSubCategoryId(1);
+        //todo: add reference mark and sub_category
         $produc->setLink('www.link.fr');
         $produc->setDate(new \DateTime());
 
