@@ -25,12 +25,12 @@ services:
       - .docker/nginx/conf:/etc/nginx/conf.d
       - ${SYMFONY_APP_PATH}/var/nginx:/var/log/nginx
     depends_on:
-      - phpfpm
+      - php
     networks:
       - default
 
-  phpfpm:    
-    container_name: phpfpm
+  php:
+    container_name: php
     build: .docker/php
     restart: 'no'
     volumes:

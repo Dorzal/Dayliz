@@ -15,16 +15,16 @@ use Doctrine\Common\Persistence\ObjectManager;
 class SubCategoryFixtures
 {
 
-//    public function load(ObjectManager $manager) {
-//
-//        $sb = new SubCategory();
-//
-//        $sb->setName('');
-//        $sb->addProduct()
-//
-//        $manager->persist($sb);
-//        $manager->flush();
-//
-//    }
+    public function load(ObjectManager $manager) {
+
+        $sb = new SubCategory();
+
+        $sb->setName('sous-categorie');
+        $sb->setLogo('wwww.jpg');
+
+        $manager->persist($sb);
+        $manager->flush();
+
+    }
 
 }

@@ -162,6 +162,19 @@ class Product
         return $this;
     }
 
+    public function getSubCategoryId(): ?SubCategory {
+
+        return $this->subCategory;
+    }
+
+    public function setSubCategoryId(?int $subCategory_id): self {
+        $this->subCategory_id = $subCategory_id;
+
+        return $this;
+
+    }
+
+
     /**
      * @return Collection|User[]
      */

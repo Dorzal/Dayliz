@@ -8,6 +8,7 @@
 
 namespace App\DataFixtures;
 
+
 use App\Entity\Product;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -24,9 +25,9 @@ class ProductFixtures extends Fixture {
         $product = new Product();
 
         $product->setName('ps4');
-        $product->setCategoryId(1);
         $product->setDescribe('On sait depuis longtemps que travailler avec du texte lisible et contenant du sens est source de distractions, et empêche de se concentrer sur la mise en page elle-même. L\'avantage du Lorem Ipsum sur un texte');
         $product->setImage('image.png');
+        $product->setSubCategoryId(1);
         $product->setMarkId(1);
         $product->setLink('www.link.fr');
         $product->setDate(new \DateTime());
@@ -37,10 +38,10 @@ class ProductFixtures extends Fixture {
         $produc = new Product();
 
         $produc->setName('deco');
-        $produc->setCategoryId(1);
         $produc->setDescribe('On sait depuis longtemps que travailler avec du texte lisible et contenant du sens est source de distractions, et empêche de se concentrer sur la mise en page elle-même. L\'avantage du Lorem Ipsum sur un texte');
         $produc->setImage('image.png');
         $produc->setMarkId(1);
+        $produc->setSubCategoryId(1);
         $produc->setLink('www.link.fr');
         $produc->setDate(new \DateTime());
 
